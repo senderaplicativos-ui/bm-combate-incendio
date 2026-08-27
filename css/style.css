@@ -827,9 +827,154 @@ ul {
     align-items: stretch;
 }
 
+/* Carrossel de Placas */
+.produtos-carrossel {
+    margin-bottom: 50px;
+}
+
+.carrossel-placas-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carrossel-placas-track::-webkit-scrollbar {
+    display: none;
+}
+
+.placa-card {
+    flex: 0 0 280px;
+    background: var(--branco);
+    border-radius: var(--raio-m);
+    overflow: hidden;
+    box-shadow: var(--sombra-leve);
+    transition: all 0.3s ease;
+}
+
+.placa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-media);
+}
+
+.placa-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.placa-info {
+    padding: 20px;
+}
+
+.placa-info h4 {
+    color: var(--preto);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.placa-info p {
+    color: var(--cinza-medio);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.carrossel-placas-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.placas-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--vermelho);
+    background: transparent;
+    color: var(--vermelho);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placas-btn:hover {
+    background: var(--vermelho);
+    color: var(--branco);
+}
+
+.placas-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.placas-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cinza-medio);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.placas-dots span.active {
+    background: var(--vermelho);
+}
+
+.btn-portfolio {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    color: var(--branco);
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-portfolio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(227, 6, 19, 0.4);
+}
+
 @media (max-width: 1200px) {
     .produtos-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsivo Carrossel Placas */
+@media (max-width: 768px) {
+    .placa-card {
+        flex: 0 0 260px;
+    }
+
+    .carrossel-placas-track {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .placa-card {
+        flex: 0 0 220px;
+    }
+
+    .placa-card img {
+        height: 160px;
+    }
+
+    .btn-portfolio {
+        width: 100%;
+        justify-content: center;
     }
 }
 

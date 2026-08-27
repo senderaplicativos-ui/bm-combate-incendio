@@ -239,5 +239,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
+    // ============================================
+    // CARROSSEL DE PLACAS
+    // ============================================
+    const plaquesTrack = document.querySelector('.carrossel-placas-track');
+    const plaquesPrevBtn = document.querySelector('.placas-btn.prev');
+    const plaquesNextBtn = document.querySelector('.placas-btn.next');
+    const plaquesDots = document.querySelector('.placas-dots');
+
+    if (plaquesTrack) {
+        const plaques = plaquesTrack.querySelectorAll('.placa-card');
+        const cardsPerView = 3;
+        const totalSlides = Math.ceil(plaques.length / cardsPerView);
+
+        // Criar dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            plaquesDots.appendChild(dot);
+        }
+
+        function updateDots() {
+            const currentSlide = Math.floor(plaquesTrack.scrollLeft / (plaques[0].offsetWidth + 20));
+            plaquesDots.querySelectorAll('span').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            const cardWidth = plaques[0].offsetWidth + 20;
+            plaquesTrack.scrollTo({
+                left: slideIndex * cardWidth * cardsPerView,
+                behavior: 'smooth'
+            });
+        }
+
+        plaquesPrevBtn.addEventListener('click', () => {
+            const currentSlide = Math.floor(plaquesTrack.scrollLeft / (plaques[0].offsetWidth + 20));
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            } else {
+                goToSlide(totalSlides - 1);
+            }
+        });
+
+        plaquesNextBtn.addEventListener('click', () => {
+            const currentSlide = Math.floor(plaquesTrack.scrollLeft / (plaques[0].offsetWidth + 20));
+            if (currentSlide < totalSlides - 1) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(0);
+            }
+        });
+
+        plaquesTrack.addEventListener('scroll', updateDots);
+
+        // Auto scroll a cada 5 segundos
+        setInterval(() => {
+            const currentSlide = Math.floor(plaquesTrack.scrollLeft / (plaques[0].offsetWidth + 20));
+            const nextSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(nextSlide);
+        }, 5000);
+    }
+
     console.log('🚀 BM Combate Incêndio - Landing Page Carregada');
 });
