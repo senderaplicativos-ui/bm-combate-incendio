@@ -718,6 +718,17 @@ ul {
     opacity: 0.9;
 }
 
+.sobre-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sobre-logo-img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
 .servicos::before {
     content: '';
     position: absolute;
@@ -1490,6 +1501,10 @@ ul {
 
     .servicos-logo-img {
         max-width: 200px;
+    }
+
+    .sobre-logo-img {
+        max-width: 220px;
     }
 
     .hero-buttons {

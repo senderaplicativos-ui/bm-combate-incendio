@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
-    // VALIDAÇÃO DE FORMULÁRIO
+    // VALIDAÇÃO DE FORMULÁRIO - REDIRECIONAR PARA WHATSAPP
     // ============================================
     const contactForm = document.getElementById('contact-form');
 
@@ -126,26 +126,41 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Simular envio
+            // Pegar os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+            const servico = document.getElementById('servico').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Criar mensagem para WhatsApp
+            let textoWhatsApp = `*Novo orçamento - BM Combate Incêndio*\n\n`;
+            textoWhatsApp += `*Nome:* ${nome}\n`;
+            textoWhatsApp += `*Telefone:* ${telefone}\n`;
+            textoWhatsApp += `*Email:* ${email}\n`;
+            textoWhatsApp += `*Serviço:* ${servico}\n`;
+            textoWhatsApp += `*Mensagem:* ${mensagem}`;
+
+            // Codificar para URL
+            const mensagemEncoded = encodeURIComponent(textoWhatsApp);
+
+            // Número do WhatsApp (sem formatação)
+            const whatsappNumero = '5531997824297';
+
+            // Redirecionar para WhatsApp
+            const urlWhatsApp = `https://wa.me/${whatsappNumero}?text=${mensagemEncoded}`;
+            window.open(urlWhatsApp, '_blank');
+
+            // Feedback visual
             const btn = this.querySelector('.submit-btn');
             const originalText = btn.innerHTML;
-
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            btn.disabled = true;
+            btn.innerHTML = '<i class="fab fa-whatsapp"></i> Redirecionando...';
+            btn.style.background = '#25D366';
 
             setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Enviado com Sucesso!';
-                btn.style.background = '#25D366';
-
-                // Limpar formulário
-                this.reset();
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    btn.style.background = '';
-                }, 3000);
-            }, 2000);
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 3000);
         });
     }
 
