@@ -1,0 +1,10 @@
+# Arquivos de referência (não necessários para o site)
+material/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.log
+*.tmp
