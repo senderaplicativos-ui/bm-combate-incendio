@@ -830,6 +830,7 @@ ul {
 /* Carrossel de Placas */
 .produtos-carrossel {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .carrossel-placas-track {
@@ -932,6 +933,7 @@ ul {
 .btn-portfolio {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     padding: 16px 32px;
     background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
