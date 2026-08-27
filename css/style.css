@@ -1242,6 +1242,12 @@ ul {
     margin-top: var(--espaco-m);
 }
 
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .portfolio-item {
     position: relative;
     border-radius: var(--raio-m);
