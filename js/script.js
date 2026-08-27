@@ -171,14 +171,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     phoneInputs.forEach(input => {
         input.addEventListener('input', function(e) {
+            // Remove tudo que não é número
             let value = e.target.value.replace(/\D/g, '');
+
+            // Limita a 11 dígitos
+            value = value.substring(0, 11);
+
             if (value.length > 0) {
+                // (XX)
                 if (value.length <= 2) {
                     value = '(' + value;
-                } else if (value.length <= 7) {
-                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
-                } else {
-                    value = '(' + value.slice(0, 2) + ') ' + value.slice(2, 7) + '-' + value.slice(2, 11);
+                }
+                // (XX) XXXXX
+                else if (value.length <= 7) {
+                    value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+                }
+                // (XX) XXXXX-XXXX
+                else {
+                    value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
                 }
             }
             e.target.value = value;
