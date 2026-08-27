@@ -718,15 +718,16 @@ ul {
     opacity: 0.9;
 }
 
-.sobre-logo {
+.sobre-logo-full {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 30px 0;
 }
 
 .sobre-logo-img {
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
     height: auto;
+    margin: 0 auto;
 }
 
 .servicos::before {
@@ -1503,8 +1504,12 @@ ul {
         max-width: 200px;
     }
 
+    .sobre-logo-full {
+        padding: 20px 0;
+    }
+
     .sobre-logo-img {
-        max-width: 220px;
+        max-width: 200px;
     }
 
     .hero-buttons {
