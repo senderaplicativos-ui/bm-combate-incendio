@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Work/projetos bm-combate-incendio/css/**)",
+      "Bash(git config *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)"
+    ]
+  }
+}
