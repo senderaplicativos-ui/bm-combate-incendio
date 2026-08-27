@@ -794,6 +794,13 @@ ul {
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: var(--espaco-m);
+    align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .produto-card {

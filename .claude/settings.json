@@ -4,7 +4,8 @@
       "Read(//c/Work/projetos bm-combate-incendio/css/**)",
       "Bash(git config *)",
       "Bash(gh repo *)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(curl -s https://api.github.com/repos/senderaplicativos-ui/bm-combate-incendio/contents)"
     ]
   }
 }
