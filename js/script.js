@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const mensagemEncoded = encodeURIComponent(textoWhatsApp);
 
             // Número do WhatsApp (sem formatação)
-            const whatsappNumero = '5531997824297';
+            const whatsappNumero = '5531975005814';
 
             // Redirecionar para WhatsApp
             const urlWhatsApp = `https://wa.me/${whatsappNumero}?text=${mensagemEncoded}`;

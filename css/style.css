@@ -443,8 +443,41 @@ ul {
 .hero-subtitle {
     font-size: 1.2rem;
     opacity: 0.9;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     max-width: 500px;
+}
+
+.hero-highlights {
+    list-style: none;
+    margin: 0 0 35px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+}
+
+.hero-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero-highlights li i {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--amarelo), var(--laranja));
+    color: var(--preto);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-buttons {
@@ -705,19 +738,6 @@ ul {
     overflow: hidden;
 }
 
-.servicos-logo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.servicos-logo-img {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-}
-
 .sobre-logo-full {
     text-align: center;
     padding: 30px 0;
@@ -742,8 +762,8 @@ ul {
 
 .servicos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
     margin-top: var(--espaco-m);
     position: relative;
     z-index: 1;
@@ -753,11 +773,13 @@ ul {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--raio-g);
-    padding: 40px 30px;
+    padding: 40px 25px;
     text-align: center;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .servico-card::before {
@@ -810,6 +832,96 @@ ul {
     color: rgba(255,255,255,0.7);
     font-size: 0.95rem;
     line-height: 1.7;
+    flex-grow: 1;
+}
+
+.servico-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: rgba(255, 200, 10, 0.12);
+    border: 1px solid rgba(255, 200, 10, 0.4);
+    color: var(--amarelo);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.servico-link i {
+    transition: transform 0.3s ease;
+}
+
+.servico-link:hover {
+    background: var(--amarelo);
+    color: var(--preto);
+}
+
+.servico-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Serviços complementares (menor destaque) */
+.servicos-extras {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.servicos-extras-titulo {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.servicos-extras-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.servico-extra {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--raio-m);
+    transition: all 0.3s ease;
+}
+
+.servico-extra:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+.servico-extra i {
+    flex-shrink: 0;
+    font-size: 20px;
+    color: rgba(255, 200, 10, 0.7);
+    margin-top: 3px;
+}
+
+.servico-extra h4 {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.servico-extra p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* ============================================
@@ -1247,13 +1359,51 @@ ul {
 .contato-info > p {
     color: rgba(255,255,255,0.8);
     font-size: 1.1rem;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+}
+
+.contato-whatsapp {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 50px;
+    background: #25D366;
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 0.98rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn i {
+    font-size: 20px;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
 .contato-items {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.contato-item-matriz {
+    border: 1px solid rgba(255, 200, 10, 0.35);
+    background: rgba(255, 200, 10, 0.06);
 }
 
 .contato-item {
@@ -1294,8 +1444,9 @@ ul {
 
 .contato-item-text p {
     color: var(--branco);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -1537,6 +1688,40 @@ ul {
     opacity: 1;
 }
 
+.footer-links-contato a::before {
+    display: none;
+}
+
+.footer-links-contato a i {
+    color: #25D366;
+    font-size: 16px;
+}
+
+.footer-enderecos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-endereco h5 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--amarelo);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.footer-endereco p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
 .footer-bottom {
     padding-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -1569,7 +1754,15 @@ ul {
     }
 
     .hero-subtitle {
-        margin: 0 auto 30px;
+        margin: 0 auto 25px;
+    }
+
+    .hero-highlights {
+        margin-left: auto;
+        margin-right: auto;
+        align-items: flex-start;
+        width: fit-content;
+        text-align: left;
     }
 
     .hero-buttons {
@@ -1601,6 +1794,14 @@ ul {
 
     .servicos-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicos-extras-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-enderecos {
+        grid-template-columns: 1fr;
     }
 
     .produtos-grid {
@@ -1654,10 +1855,6 @@ ul {
         font-size: 0.65em;
     }
 
-    .servicos-logo-img {
-        max-width: 200px;
-    }
-
     .sobre-logo-full {
         padding: 20px 0;
     }
@@ -1676,6 +1873,10 @@ ul {
     }
 
     .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contato-whatsapp {
         grid-template-columns: 1fr;
     }
 

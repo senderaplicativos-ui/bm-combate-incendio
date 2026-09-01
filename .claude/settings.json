@@ -5,7 +5,9 @@
       "Bash(git config *)",
       "Bash(gh repo *)",
       "Bash(gh api *)",
-      "Bash(curl -s https://api.github.com/repos/senderaplicativos-ui/bm-combate-incendio/contents)"
+      "Bash(curl -s https://api.github.com/repos/senderaplicativos-ui/bm-combate-incendio/contents)",
+      "WebFetch(domain:bm-combate-incendio.vercel.app)",
+      "Bash(python -c ' *)"
     ]
   }
 }
